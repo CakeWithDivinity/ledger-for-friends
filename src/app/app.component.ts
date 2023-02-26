@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoModule } from '@ngneat/transloco';
+import { HeroComponent } from './components/hero/hero.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoModule],
+  imports: [TranslocoModule, HeroComponent],
 })
 export class AppComponent {}

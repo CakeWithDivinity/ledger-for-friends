@@ -1,3 +1,6 @@
 {
-  "test": "Hello World"
+  "hero": {
+    "title": "Ledger For Friends",
+    "subtitle": "Tracking expenses within your friends group has never been easier"
+  }
 }

@@ -1,34 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 
-$color-dark: #16141F;
-$color-light: #DCFFFD;
-$color-accent: #157F1F;
+$color-dark: #16141f;
+$color-light: #dcfffd;
+$color-accent: #157f1f;
 
 /* montserrat-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/montserrat-v25-latin-regular.eot'); /* IE9 Compat Modes */
-  src: url('assets/fonts/montserrat-v25-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/fonts/montserrat-v25-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('assets/fonts/montserrat-v25-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('assets/fonts/montserrat-v25-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('assets/fonts/montserrat-v25-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+  src: url("assets/fonts/montserrat-v25-latin-regular.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/montserrat-v25-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("assets/fonts/montserrat-v25-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("assets/fonts/montserrat-v25-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("assets/fonts/montserrat-v25-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("assets/fonts/montserrat-v25-latin-regular.svg#Montserrat")
+      format("svg"); /* Legacy iOS */
 }
 /* montserrat-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
-  src: url('assets/fonts/montserrat-v25-latin-700.eot'); /* IE9 Compat Modes */
-  src: url('assets/fonts/montserrat-v25-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/fonts/montserrat-v25-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('assets/fonts/montserrat-v25-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('assets/fonts/montserrat-v25-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('assets/fonts/montserrat-v25-latin-700.svg#Montserrat') format('svg'); /* Legacy iOS */
+  src: url("assets/fonts/montserrat-v25-latin-700.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/montserrat-v25-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("assets/fonts/montserrat-v25-latin-700.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("assets/fonts/montserrat-v25-latin-700.woff") format("woff"),
+    /* Modern Browsers */ url("assets/fonts/montserrat-v25-latin-700.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("assets/fonts/montserrat-v25-latin-700.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
 
 * {
@@ -42,5 +53,7 @@ body {
   width: 100%;
   background-color: $color-dark;
   color: $color-light;
-  font-family: Montserrat, 'sans-serif';
+  font-family: Montserrat, "sans-serif";
+  padding: 2rem;
+  padding-bottom: 0;
 }
