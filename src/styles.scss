@@ -2,7 +2,8 @@
 
 $color-dark: #16141f;
 $color-light: #dcfffd;
-$color-accent: #157f1f;
+$color-accent: #4cb963;
+$font-family: Montserrat, "sans-serif";
 
 /* montserrat-regular - latin */
 @font-face {
@@ -53,7 +54,10 @@ body {
   width: 100%;
   background-color: $color-dark;
   color: $color-light;
-  font-family: Montserrat, "sans-serif";
-  padding: 2rem;
+  font-family: $font-family;
+  padding: 1.5rem;
   padding-bottom: 0;
 }
+
+@import "./styles/forms";
+@import "./styles/buttons";

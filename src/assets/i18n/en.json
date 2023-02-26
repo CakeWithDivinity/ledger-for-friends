@@ -2,5 +2,11 @@
   "hero": {
     "title": "Ledger For Friends",
     "subtitle": "Tracking expenses within your friends group has never been easier"
+  },
+  "transaction": {
+    "start": "Start calculation",
+    "amount": {
+      "placeholder": "e.g. 20"
+    }
   }
 }

@@ -1,0 +1,25 @@
+.start-transaction {
+  display: flex;
+  gap: 1ch;
+
+  .amount-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 0.5ch;
+    flex-shrink: 2;
+
+    > input {
+      flex-shrink: 1;
+      text-align: right;
+    }
+
+    > label {
+      font-size: 1.5rem;
+    }
+  }
+
+  > button {
+    min-width: max-content;
+    text-transform: uppercase;
+  }
+}

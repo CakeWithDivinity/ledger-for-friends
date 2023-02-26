@@ -1,0 +1,12 @@
+input.field {
+  background-color: $color-dark;
+  border: 1px solid $color-light;
+  color: $color-light;
+  border-radius: 0.25rem;
+  height: 2rem;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  font-size: 1rem;
+  font-family: $font-family;
+  min-width: 0; // allows resized width
+}

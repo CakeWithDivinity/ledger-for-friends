@@ -1,0 +1,20 @@
+<ng-container *transloco="let t; read: 'transaction'">
+  <div class="start-transaction">
+    <div class="amount-field">
+      <input
+        id="amount"
+        class="field"
+        type="number"
+        [placeholder]="t('amount.placeholder')"
+        [formControl]="form.controls.amount"
+      />
+      <label for="amount">€</label>
+    </div>
+    <button
+      class="button button-accent"
+      [disabled]="!form.controls.amount.valid"
+    >
+      {{ t("start") }}
+    </button>
+  </div>
+</ng-container>

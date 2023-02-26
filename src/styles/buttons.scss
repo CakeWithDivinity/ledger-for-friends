@@ -1,0 +1,26 @@
+.button {
+  border-radius: 0.25rem;
+  border: none;
+  padding-block: 0.25rem;
+  padding-inline: 1ch;
+  font-family: $font-family;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.15;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &-accent {
+    background-color: $color-accent;
+    border: 1px solid $color-accent;
+    color: $color-dark;
+
+    &:active {
+      background-color: $color-dark;
+      color: $color-accent;
+    }
+  }
+}
