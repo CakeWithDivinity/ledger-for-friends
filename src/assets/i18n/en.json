@@ -13,6 +13,11 @@
     "units": {
       "fraction": "Fraction"
     },
-    "evaluate": "Evaluate"
+    "evaluate": "Evaluate",
+    "result": {
+      "headline": "Result",
+      "text": "{{ name }} has to pay {{ price }}€",
+      "ownText": "You paid {{ price }}€"
+    }
   }
 }

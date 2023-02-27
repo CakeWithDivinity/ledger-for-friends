@@ -46,7 +46,16 @@
     </div>
   </div>
 
-  <button class="button button-accent evaluate" [disabled]="!form.valid">
+  <button
+    class="button button-accent evaluate"
+    [disabled]="!form.valid"
+    (click)="evaluateResult()"
+  >
     {{ t("evaluate") }}
   </button>
+
+  <app-transaction-result
+    *ngIf="result"
+    [result]="result"
+  ></app-transaction-result>
 </ng-container>

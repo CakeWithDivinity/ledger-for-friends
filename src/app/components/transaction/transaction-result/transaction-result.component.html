@@ -1,0 +1,8 @@
+<ng-container *transloco="let t; read: 'transaction.result'">
+  <h2>{{ t("headline") }}</h2>
+  <div class="results">
+    <p *ngFor="let resultEntry of result">
+      {{ t(resultEntry.name === "You" ? "ownText" : "text", resultEntry) }}
+    </p>
+  </div>
+</ng-container>

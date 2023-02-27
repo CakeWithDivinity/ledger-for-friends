@@ -8,6 +8,9 @@ import {
 } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { Subject, takeUntil, tap } from 'rxjs';
+import { TransactionCalculatorService } from 'src/app/core/transaction-calculator.service';
+import { TransactionResult, TransactionUnit } from 'src/app/models/transaction';
+import { TransactionResultComponent } from './transaction-result/transaction-result.component';
 
 @Component({
   selector: 'app-transaction',
@@ -15,11 +18,17 @@ import { Subject, takeUntil, tap } from 'rxjs';
   styleUrls: ['transaction.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, TranslocoModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    TranslocoModule,
+    ReactiveFormsModule,
+    TransactionResultComponent,
+  ],
+  providers: [TransactionCalculatorService],
 })
 export class TransactionComponent implements OnDestroy {
   form = this.fb.group({
-    amount: this.fb.control(null, {
+    amount: this.fb.control<number | null>(null, {
       validators: [Validators.required, Validators.min(1)],
     }),
     participants: this.fb.array([
@@ -28,9 +37,14 @@ export class TransactionComponent implements OnDestroy {
     ]),
   });
 
+  result?: TransactionResult[];
+
   private destroy$ = new Subject<void>();
 
-  constructor(private fb: NonNullableFormBuilder) {
+  constructor(
+    private fb: NonNullableFormBuilder,
+    private transactionCalculator: TransactionCalculatorService
+  ) {
     const participantsFormArray = this.form.controls.participants;
 
     participantsFormArray.valueChanges
@@ -65,6 +79,15 @@ export class TransactionComponent implements OnDestroy {
       .subscribe();
   }
 
+  evaluateResult(): void {
+    const formValue = this.form.getRawValue();
+
+    this.result = this.transactionCalculator.calculateResult({
+      ...formValue,
+      amount: formValue.amount ?? 0,
+    });
+  }
+
   // we want to keep typescripts type inference for the FormGroup definition
   // TODO: add model for Participant and use it to validate this forms type
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -77,7 +100,7 @@ export class TransactionComponent implements OnDestroy {
       amount: this.fb.control(1, {
         validators: [Validators.required, Validators.min(0)],
       }),
-      unit: this.fb.control('fraction', {
+      unit: this.fb.control<TransactionUnit>('fraction', {
         validators: Validators.required,
       }),
     }) satisfies FormGroup;
