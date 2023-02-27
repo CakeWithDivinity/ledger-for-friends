@@ -1,4 +1,4 @@
-input.field {
+.field:is(input, select) {
   background-color: $color-dark;
   border: 1px solid $color-light;
   color: $color-light;
@@ -9,4 +9,30 @@ input.field {
   font-size: 1rem;
   font-family: $font-family;
   min-width: 0; // allows resized width
+
+  &.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  &:is(input[type="checkbox"]) {
+    appearance: none;
+    width: 2rem;
+    position: relative;
+
+    &:checked {
+      background-color: $color-accent;
+      border-color: $color-accent;
+      color: $color-dark;
+
+      &::before {
+        content: "✔";
+        position: absolute;
+        font-size: 1.5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 <ng-container *transloco="let t; read: 'transaction'">
-  <div class="start-transaction">
-    <div class="amount-field">
+  <div class="field-element">
+    <label for="amount">{{ t("amount.label") }}</label>
+    <div class="amount-input">
       <input
         id="amount"
         class="field"
@@ -8,13 +9,44 @@
         [placeholder]="t('amount.placeholder')"
         [formControl]="form.controls.amount"
       />
-      <label for="amount">€</label>
+      <span class="suffix">€</span>
     </div>
-    <button
-      class="button button-accent"
-      [disabled]="!form.controls.amount.valid"
-    >
-      {{ t("start") }}
-    </button>
   </div>
+
+  <div *ngIf="form.controls.amount.value" class="field-element participants">
+    <p>{{ t("participants") }}</p>
+    <div
+      class="participant"
+      *ngFor="let participant of form.controls.participants.controls"
+    >
+      <input
+        type="checkbox"
+        class="field"
+        [formControl]="participant.controls.shouldBeEvaluated"
+      />
+      <input
+        class="field"
+        placeholder="John Doe"
+        [formControl]="participant.controls.name"
+        [class.disabled]="!participant.controls.shouldBeEvaluated.value"
+      />
+      <input
+        type="number"
+        class="field"
+        [formControl]="participant.controls.amount"
+        [class.disabled]="!participant.controls.shouldBeEvaluated.value"
+      />
+      <select
+        class="field"
+        [formControl]="participant.controls.unit"
+        [class.disabled]="!participant.controls.shouldBeEvaluated.value"
+      >
+        <option value="fraction">{{ t("units.fraction") }}</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="button button-accent evaluate" [disabled]="!form.valid">
+    {{ t("evaluate") }}
+  </button>
 </ng-container>

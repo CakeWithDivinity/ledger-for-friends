@@ -6,7 +6,13 @@
   "transaction": {
     "start": "Start calculation",
     "amount": {
+      "label": "Amount",
       "placeholder": "e.g. 20"
-    }
+    },
+    "participants": "Participants",
+    "units": {
+      "fraction": "Fraction"
+    },
+    "evaluate": "Evaluate"
   }
 }
