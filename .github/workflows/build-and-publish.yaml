@@ -32,7 +32,3 @@ jobs:
 
       - name: Lint project
         run: yarn lint
-
-      - name: Publish to GH-Pages
-        run: yarn deploy
-
