@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Ledger For Friends",
+    "subtitle": "Tracking expenses within your friend group has never been easier"
+  },
+  "transaction": {
+    "start": "Start calculation",
+    "amount": {
+      "label": "Amount",
+      "placeholder": "e.g. 20"
+    },
+    "participants": "Participants",
+    "units": {
+      "fraction": "Fraction"
+    },
+    "evaluate": "Evaluate",
+    "result": {
+      "headline": "Result",
+      "text": "{{ name }} has to pay {{ price }}€",
+      "ownText": "You paid {{ price }}€"
+    }
+  }
+}
