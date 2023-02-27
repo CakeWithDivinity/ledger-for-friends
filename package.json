@@ -12,7 +12,8 @@
     "lint:eslint": "eslint src --ext .ts,.html --max-warnings 0",
     "lint:fix": "run-s lint:prettier:fix lint:eslint:fix",
     "lint:prettier:fix": "prettier --write \"src/**/*.(html|scss|ts)\"",
-    "lint:eslint:fix": "eslint src --ext .ts,.html --max-warnings 0 --fix"
+    "lint:eslint:fix": "eslint src --ext .ts,.html --max-warnings 0 --fix",
+    "deploy": "ng deploy --base-href=/ledger-for-friends/"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
+    "angular-cli-ghpages": "^1.0.5",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
