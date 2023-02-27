@@ -22,7 +22,10 @@ export class TransactionComponent implements OnDestroy {
     amount: this.fb.control(null, {
       validators: [Validators.required, Validators.min(1)],
     }),
-    participants: this.fb.array([this.createParticipantFormGroup()]),
+    participants: this.fb.array([
+      this.createParticipantFormGroupForUser(),
+      this.createParticipantFormGroup(),
+    ]),
   });
 
   private destroy$ = new Subject<void>();
@@ -78,6 +81,20 @@ export class TransactionComponent implements OnDestroy {
         validators: Validators.required,
       }),
     }) satisfies FormGroup;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  private createParticipantFormGroupForUser() {
+    const formGroup = this.createParticipantFormGroup();
+
+    formGroup.setValue({
+      shouldBeEvaluated: true,
+      amount: 1,
+      unit: 'fraction',
+      name: 'You',
+    });
+
+    return formGroup;
   }
 
   ngOnDestroy(): void {
