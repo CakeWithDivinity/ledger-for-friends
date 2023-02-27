@@ -1,5 +1,6 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, NgModule, isDevMode } from '@angular/core';
+import { Inject, Injectable, NgModule, isDevMode } from '@angular/core';
 import {
   TRANSLOCO_CONFIG,
   TRANSLOCO_LOADER,
@@ -14,10 +15,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TranslocoHttpLoader implements TranslocoLoader {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(APP_BASE_HREF) private baseUrl: string
+  ) {}
 
   getTranslation(lang: string): Observable<Translation> | Promise<Translation> {
-    return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+    return this.http.get<Translation>(
+      `${this.baseUrl}assets/i18n/${lang}.json`
+    );
   }
 }
 
